@@ -55,9 +55,8 @@ const SetupForm = () => {
                     key={index}
                     className='answer-btn'
                     onClick={() => selectAnswer(state)}
-                  >
-                    {value}
-                  </button>
+                    dangerouslySetInnerHTML={{ __html: value }}
+                  />
                 )
               })}
             </div>
