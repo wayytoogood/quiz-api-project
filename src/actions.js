@@ -1,0 +1,5 @@
+export const START_QUIZ = 'START_QUIZ'
+export const FINISH_PREPARATION = 'FINISH_PREPARATION'
+export const CHANGE_INPUT = 'CHANGE_INPUT'
+export const SELECT_ANSWER = 'SELECT_ANSWER'
+export const PLAY_AGAIN = 'PLAY_AGAIN'
