@@ -8,6 +8,7 @@ const SetupForm = () => {
     inputValues,
     changeInput,
     startQuiz,
+    isError,
     questions,
     currentIndex,
     correctAnswers,
@@ -86,8 +87,8 @@ const SetupForm = () => {
               type='number'
               name='amount'
               id='amount'
-              min='1'
-              max='50'
+              min={1}
+              max={50}
               value={inputValues.amount}
               onChange={changeInput}
             />
@@ -138,6 +139,11 @@ const SetupForm = () => {
               <option value='hard'>hard</option>
             </select>
           </div>
+          {isError && (
+            <p className='error'>
+              can't generate questions, please try different options
+            </p>
+          )}
           <button type='submit' className='submit-btn' onClick={startQuiz}>
             start
           </button>

@@ -13,13 +13,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: true,
+        isError: false,
         startToggle: !state.startToggle,
       }
     case FINISH_PREPARATION:
+      if (payload.length < 1) {
+        return { ...state, loading: false, isError: true }
+      }
       return { ...state, loading: false, questions: payload }
     case CHANGE_INPUT:
-      // state.inputValues[payload.inputName] = payload.inputValue
-      // return { ...state }
       return {
         ...state,
         inputValues: {

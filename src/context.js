@@ -31,6 +31,7 @@ const initialState = {
   },
   startToggle: false,
   questions: [],
+  isError: false,
   currentIndex: 0,
   correctAnswers: 0,
 }
@@ -60,8 +61,9 @@ const AppProvider = ({ children }) => {
   }
 
   const fetchQuestions = async (url) => {
-    const response = await axios.get(url)
-    dispatch({ type: FINISH_PREPARATION, payload: response.data.results })
+    const response = await axios(url)
+    const data = response.data.results
+    dispatch({ type: FINISH_PREPARATION, payload: data })
   }
 
   useEffect(() => {
